@@ -3,7 +3,8 @@
 content=$1
 
 if [ -z $content ]; then 
-    content=`date +%y%m%d%H%M%S`
+    # content=`date +%y%m%d%H%M%S`
+    content="`date +%F` `date +%H`:`date +%M`:`date +%S`"
     echo $content
 fi
 
