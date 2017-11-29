@@ -9,4 +9,16 @@ if [ -z $content ]; then
 fi
 
 git add . && git commit -a -m "${content}"
-git push origin master
+# git push origin yzw2.1.3
+
+cd $PWD
+if [ -d '.git' ]; then
+    output=`git symbolic-ref --short -q HEAD`
+    if [ "$output" ]; then
+        git push origin "${output}"
+    else
+    	echo "未找到分支"
+    fi
+else
+	echo "不是git分支"
+fi
